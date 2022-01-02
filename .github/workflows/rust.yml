@@ -27,9 +27,9 @@ jobs:
             - name: Check code formatting
               run: cargo fmt --all -- --check
             - name: Check Clippy lints (reqwest)
-              run: cargo clippy --manifest-path influxdb/Cargo.toml --all-targets --no-default-features --features use-serde,derive,reqwest-client -- -D warnings
+              run: cargo clippy --manifest-path rinflux/Cargo.toml --all-targets --no-default-features --features use-serde,derive,reqwest-client -- -D warnings
             - name: Check Clippy lints (surf)
-              run: cargo clippy --manifest-path influxdb/Cargo.toml --all-targets --no-default-features --features use-serde,derive,hyper-client -- -D warnings
+              run: cargo clippy --manifest-path rinflux/Cargo.toml --all-targets --no-default-features --features use-serde,derive,hyper-client -- -D warnings
 
     compile:
         name: Compile (${{ matrix.rust_release }}/${{ matrix.os }})
@@ -72,7 +72,7 @@ jobs:
         steps:
             - uses: actions/checkout@v1
             - uses: dtolnay/rust-toolchain@stable
-            - run: cargo test --manifest-path=./influxdb/Cargo.toml --no-default-features --features 'use-serde derive ${{ matrix.http-backend }}' --no-fail-fast
+            - run: cargo test --manifest-path=./rinflux/Cargo.toml --no-default-features --features 'use-serde derive ${{ matrix.http-backend }}' --no-fail-fast
 
     coverage:
         name: Code Coverage (stable/ubuntu-20.04)
