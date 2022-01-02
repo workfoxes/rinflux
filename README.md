@@ -10,17 +10,17 @@
 </div>
 <br/>
 <p align="center">
-    <a href="https://crates.io/crates/influxdb">
+    <a href="https://crates.io/crates/rinflux">
         <img src="https://img.shields.io/crates/v/influxdb.svg"/>
     </a>
-    <a href="https://github.com/influxdb-rs/influxdb-rust/actions/workflows/rust.yml">
+    <a href="https://github.com/workfoxes/rinflux/actions/workflows/rust.yml">
         <img src="https://github.com/influxdb-rs/influxdb-rust/actions/workflows/rust.yml/badge.svg" alt='Build Status' />
     </a>
-    <a href="https://influxdb-rs.github.io/influxdb-rust/tarpaulin-report.html">
-        <img src="https://influxdb-rs.github.io/influxdb-rust/coverage.svg" alt="Coverage Report" />
+    <a href="https://workfoxes.github.io/rinflux/tarpaulin-report.html">
+        <img src="https://workfoxes.github.io/rinflux/coverage.svg" alt="Coverage Report" />
     </a>
-    <a href="https://docs.rs/influxdb">
-        <img src="https://docs.rs/influxdb/badge.svg" alt='Documentation Status' />
+    <a href="https://docs.rs/rinflux">
+        <img src="https://docs.rs/rinflux/badge.svg" alt='Documentation Status' />
     </a>
     <a href="https://www.rust-lang.org/en-US/">
         <img src="https://img.shields.io/badge/Made%20with-Rust-orange.svg" alt='Build with Rust' />
@@ -52,14 +52,14 @@ Pull requests are always welcome. See [Contributing](https://github.com/workfoxe
 Add the following to your `Cargo.toml`
 
 ```toml
-influxdb = { version = "0.5.1", features = ["derive"] }
+rinflux = { version = "0.1.0", git = "https://github.com/workfoxes/rinflux.git" }
 ```
 
 For an example with using Serde deserialization, please refer to [serde_integration](crate::integrations::serde_integration)
 
 ```rust
-use influxdb::{Client, Query, Timestamp, ReadQuery};
-use influxdb::InfluxDbWriteable;
+use rinflux::{Client, Query, Timestamp, ReadQuery};
+use rinflux::InfluxDbWriteable;
 use chrono::{DateTime, Utc};
 
 #[tokio::main]
@@ -96,46 +96,8 @@ async fn main() {
 }
 ```
 
-For further examples, check out the Integration Tests in `tests/integration_tests.rs`
-in the repository.
-
-## Choice of HTTP backend
-
-To communicate with InfluxDB, you can choose the HTTP backend to be used configuring the appropriate feature. We recommend sticking with the default reqwest-based client, unless you really need async-std compatibility.
-
-- **[hyper](https://github.com/hyperium/hyper)** (through reqwest, used by default), with [rustls](https://github.com/ctz/rustls)
-  ```toml
-  influxdb = { version = "0.5.1", features = ["derive"] }
-  ```
-
-- **[hyper](https://github.com/hyperium/hyper)** (through reqwest), with native TLS (OpenSSL)
-  ```toml
-  influxdb = { version = "0.5.1", default-features = false, features = ["derive", "use-serde", "reqwest-client"] }
-  ```
-
-- **[hyper](https://github.com/hyperium/hyper)** (through surf), use this if you need tokio 0.2 compatibility
-   ```toml
-   influxdb = { version = "0.5.1", default-features = false, features = ["derive", "use-serde", "curl-client"] }
-   ```
-- **[curl](https://github.com/alexcrichton/curl-rust)**, using [libcurl](https://curl.se/libcurl/)
-   ```toml
-   influxdb = { version = "0.5.1", default-features = false, features = ["derive", "use-serde", "curl-client"] }
-   ```
-- **[async-h1](https://github.com/http-rs/async-h1)** with native TLS (OpenSSL)
-   ```toml
-   influxdb = { version = "0.5.1", default-features = false, features = ["derive", "use-serde", "h1-client"] }
-   ```
-- **[async-h1](https://github.com/http-rs/async-h1)** with [rustls](https://github.com/ctz/rustls)
-   ```toml
-   influxdb = { version = "0.5.1", default-features = false, features = ["derive", "use-serde", "h1-client-rustls"] }
-   ```
-- WebAssembly's `window.fetch`, via `web-sys` and **[wasm-bindgen](https://github.com/rustwasm/wasm-bindgen)**
-   ```toml
-   influxdb = { version = "0.5.1", default-features = false, features = ["derive", "use-serde", "wasm-client"] }
-   ```
-
 ## License
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-@ 2020 Gero Gerke and [contributors](https://github.com/influxdb-rs/influxdb-rust/graphs/contributors).
+@ 2020 Gero Gerke and [contributors](https://github.com/workfoxes/rinflux/graphs/contributors).
