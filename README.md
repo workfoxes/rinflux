@@ -8,7 +8,6 @@
     <br/>
     <strong>Unofficial InfluxDB Driver for Rust</strong>
 </div>
-<br/>
 <p align="center">
     <a href="https://crates.io/crates/rinflux">
         <img src="https://img.shields.io/crates/v/influxdb.svg"/>

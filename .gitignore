@@ -12,3 +12,4 @@ Cargo.lock
 /target
 
 .idea
+README.md.expected
