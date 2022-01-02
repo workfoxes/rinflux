@@ -99,4 +99,4 @@ async fn main() {
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-@ 2020 Gero Gerke and [contributors](https://github.com/workfoxes/rinflux/graphs/contributors).
+@ 2022 Workfoxes and [contributors](https://github.com/workfoxes/rinflux/graphs/contributors).

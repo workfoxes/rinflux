@@ -7,14 +7,14 @@ on:
   pull_request:
 
 jobs:
-    readmecheck:
-        name: README Format Check
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v1
-            - uses: dtolnay/rust-toolchain@nightly
-            - run: bash ./auxiliary/update_cargo-readme.sh
-            - run: bash ./auxiliary/check_readme_consistency.sh
+#    readmecheck:
+#        name: README Format Check
+#        runs-on: ubuntu-latest
+#        steps:
+#            - uses: actions/checkout@v1
+#            - uses: dtolnay/rust-toolchain@nightly
+#            - run: bash ./auxiliary/update_cargo-readme.sh
+#            - run: bash ./auxiliary/check_readme_consistency.sh
 
     style:
         name: Style Checks (stable/ubuntu-latest)
