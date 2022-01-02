@@ -38,7 +38,7 @@ impl Client {
     /// # Examples
     ///
     /// ```rust
-    /// use influxdb::Client;
+    /// use rinflux::Client;
     ///
     /// let _client = Client::new("http://localhost:8086", "test");
     /// ```
