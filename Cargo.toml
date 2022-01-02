@@ -8,7 +8,7 @@ keywords = ["influxdb", "database", "influx"]
 license = "MIT"
 readme = "README.md"
 include = ["src/**/*", "tests/**/*", "Cargo.toml", "LICENSE"]
-repository = "https://github.com/workfoxes/influxdb"
+repository = "https://github.com/workfoxes/rinflux"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
