@@ -27,9 +27,9 @@ jobs:
             - name: Check code formatting
               run: cargo fmt --all -- --check
             - name: Check Clippy lints (reqwest)
-              run: cargo clippy --manifest-path rinflux/Cargo.toml --all-targets --no-default-features --features use-serde,derive,reqwest-client -- -D warnings
+              run: cargo clippy --manifest-path Cargo.toml --all-targets --no-default-features -- -D warnings
             - name: Check Clippy lints (surf)
-              run: cargo clippy --manifest-path rinflux/Cargo.toml --all-targets --no-default-features --features use-serde,derive,hyper-client -- -D warnings
+              run: cargo clippy --manifest-path Cargo.toml --all-targets --no-default-features -- -D warnings
 
     compile:
         name: Compile (${{ matrix.rust_release }}/${{ matrix.os }})
@@ -72,7 +72,7 @@ jobs:
         steps:
             - uses: actions/checkout@v1
             - uses: dtolnay/rust-toolchain@stable
-            - run: cargo test --manifest-path=./rinflux/Cargo.toml --no-default-features --features 'use-serde derive ${{ matrix.http-backend }}' --no-fail-fast
+            - run: cargo test --manifest-path= Cargo.toml  --no-default-features --features '${{ matrix.http-backend }}' --no-fail-fast
 
     coverage:
         name: Code Coverage (stable/ubuntu-20.04)
@@ -123,8 +123,6 @@ jobs:
               cargo tarpaulin -v \
                 --target-dir target/tarpaulin \
                 --workspace \
-                --features use-serde,derive \
-                --exclude-files 'derive/*' \
                 --exclude-files 'target/*' \
                 --ignore-panics --ignore-tests \
                 --out Html --out Json
